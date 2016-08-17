@@ -265,9 +265,9 @@ But what happened when you entered the address and hit enter? What happened is
 **almost** similar to the section [The Big Picture](#the-big-picture) (We
 suggest rereading that section).
 
-For more investigation, put the web browser and the terminal window containing
-Django's development server side by side. Refresh the web page in the browser.
-You can see that whenever you refresh the page, two lines is printed in the
+For more investigation, put the web browser and the terminal window, containing
+Django's development server, side by side. Refresh the web page in the browser.
+You can see that whenever you refresh the page, two lines are printed in the
 terminal window:
 
     Not Found: /
@@ -280,15 +280,15 @@ this reason). So if there was no problem serving the request, why does the
 first line say "Not Found"? To get the answer, you should (re)read the section
 [HTTP](#http). Building on what you learned in the HTTP section, you may notice
 that the content (sometimes called resource) we requested from the server was
-`/` which means no file is associated with this address (it should have been
+`/`, which means no file is associated with this address (it should have been
 something like `/foo.html`). This is something related to the dynamic nature of
-the web applications that we'll cover it later in this article. The reason that
+the web applications that we'll cover later in this article. The reason that
 the first line says "Not Found: /", is that we requested the server to send us
-whatever resource is associated with the address `/` and since that we don't
+whatever resource is associated with the address `/` and since we don't
 have any resources associated with this address, the server simply responded
 with "Not Found". Django, however, is configured to respond with that default
-page when there is no resource associated with the this particular address `/`.
-To verify that, let's request another resource from the server. In the browser
+page when there is no resource associated with this particular address `/`.
+To verify that, let's request another resource from the server. In browser
 address bar, enter `localhost:8000/hello`. You can see that the server responded
 with:
 
@@ -318,7 +318,7 @@ By mapping a URL to a function, we will be able to generate dynamic contents,
 depending on how the function is programmed. To define a mapping between the
 url `/hello` and a function, we can simply use the `url` function. This
 function takes two parameters (actually many but currently we're concerned with
-these two parameters). A string containing a URL and a function. But we don't
+these two parameters): A string containing a URL and a function. But we don't
 have any function yet, so let's create one.
 
 Create a python module in the `helloworld` directory and name it something like
@@ -357,7 +357,7 @@ one (the one that we defined earlier), it passed the request to our function
 function which is registered with Django, must at least accept one argument
 which is the HTTP request).
 
-We have our function working, but one important point remains. If look closer,
+We have our function working, but one important point remains. Looking closer,
 we'll find out that the `/hello` URL is not dynamic! On whatever request, our
 function just returns hello. To add some dynamics to it, we can say hello and
 show the time of the day.
